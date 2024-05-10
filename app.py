@@ -39,7 +39,10 @@ st.set_page_config(layout="wide")
 c1, c2 = st.columns(2)
 
 with c1:
-    m = folium.Map(location=(31.231168, 121.462833), zoom_start=12)
+    m = folium.Map(location=(31.231168, 121.462833),
+                   tiles='http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}',
+                   attr='default',
+                   zoom_start=12)
     Draw(export=True).add_to(m)
 
     output = st_folium(
@@ -89,7 +92,10 @@ if output['all_drawings'] and len(output['all_drawings']) == 2:
 
         with c2:
 
-            m = folium.Map(location=(31.231168, 121.462833), zoom_start=12)
+            m = folium.Map(location=(31.231168, 121.462833),
+                           tiles='http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}',
+                           attr='default',
+                           zoom_start=12)
 
             folium.Marker(p1).add_to(m)
             folium.Marker(p2).add_to(m)
